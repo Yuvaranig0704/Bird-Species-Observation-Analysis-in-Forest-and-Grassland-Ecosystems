@@ -4,10 +4,9 @@ import mysql.connector
 import plotly.express as px
 import seaborn as sns
 import matplotlib.pyplot as plt
-import statsmodels.api as sm
 
 # ---------------------------
-# 🛠️ Enhanced Data Loading
+# Data Loading
 # ---------------------------
 @st.cache_resource
 def get_connection():
@@ -38,7 +37,7 @@ def load_data():
     return df
 
 # ---------------------------
-# 📦 Load Verified Data
+# Load Verified Data
 # ---------------------------
 df = load_data()
 st.title("🦜 Bird Species Observation And Analysis")	
@@ -51,7 +50,7 @@ st.sidebar.write(f"Total Observations: {df['ObservationCount'].sum():,}")
 st.sidebar.write(f"Unique Species: {df['Scientific_Name'].nunique()}")
 
 # ---------------------------
-# 🧭 Main Tabs
+#  Main Tabs
 # ---------------------------
 tab1, tab2, tab3, tab4 = st.tabs([
     "📊 Overview", 
@@ -170,6 +169,3 @@ with tab4:
             title="Distribution of Species by PIF Watchlist Status",
         )
         st.plotly_chart(fig,color=['red','y'])
-
-    
-        
